@@ -4,7 +4,6 @@ import menu
 
 def partie_simple():
    
-    
     #variable collision pour eviter que les croix et les ronds ne ce superpose
     collision1= False
     collision2= False
@@ -15,6 +14,7 @@ def partie_simple():
     collision7= False
     collision8= False
     collision9= False 
+    
     #la valeur prend 1 pour les croix et 2 pour les ronds cela permet determiner l'alignement
     a=0
     b=0
@@ -26,6 +26,7 @@ def partie_simple():
     h=0
     j=0
 
+    #indice fin de partie pour gerer le match Nul
     indice_fin_partie=0
           
     #initialisation du i permettant de faire alterner les tours
@@ -174,17 +175,23 @@ def partie_simple():
                         j=1
                     indice_fin_partie+=1
             
+            #Victoire croix
             elif a==b==c==1 or d==e==f==1 or g==h==j==1 or a==e==j==1 or c==e==g==1 or a==d==g==1 or b==e==h==1 or c==f==j==1:
-                 
+            
+            #indice p est l'argument de la fonction menu qui est dans le fichier menu qui permet de gerer l'affichage du menu en fin de partie 
+            # p=1,2ou3 ce qui permet de definir p=1 affichage victoire croix ... 
                 p=1
                 menu(p)
 
+            #Victoire ronds
             elif a==b==c==2 or d==e==f==2 or g==h==j==2 or a==e==j==2 or c==e==g==2 or a==d==g==2 or b==e==h==2 or c==f==j==2:
                  
                 p=0
                 menu(p)          
             
+            #Match Nul
             elif indice_fin_partie==9:
+                
                 p=3
                 menu(p)
 

@@ -9,14 +9,16 @@ def menu(p):
         pygame.font.init()
         screen.fill((255,255,255))
         my_font=pygame.font.Font(None, 100)        
-        text1 = my_font.render("Match NUL",1,(0,0,0))
         
+        text1 = my_font.render("Match NUL",1,(0,0,0))
         screen.blit(text1,(250,100))
         font=pygame.font.Font(None, 50)        
+        
         text = font.render(" page d'acceuil",1,(0,0,0))
         screen.blit(text,(500,300))
         text = font.render(" recommencer",1,(0,0,0))
         screen.blit(text,(100,300))
+       
         if event.type== pygame.MOUSEBUTTONDOWN:
             x,y=pygame.mouse.get_pos()
             if 500<x<745 and 310<y<330:
@@ -27,15 +29,17 @@ def menu(p):
     def victoire_croix():
         pygame.font.init()
         screen.fill((255,255,255))
+        
         my_font=pygame.font.Font(None, 100)        
         text1 = my_font.render("You Win 'X'",1,(0,0,0))
-        
         screen.blit(text1,(250,100))
         font=pygame.font.Font(None, 50)        
+        
         text = font.render(" page d'acceuil",1,(0,0,0))
         screen.blit(text,(500,300))
         text = font.render(" recommencer",1,(0,0,0))
         screen.blit(text,(100,300))
+        
         if event.type== pygame.MOUSEBUTTONDOWN:
             x,y=pygame.mouse.get_pos()
             if 500<x<745 and 310<y<330:
@@ -45,15 +49,19 @@ def menu(p):
 
     def victoire_rond():
         pygame.font.init()
+        
         screen.fill((255,255,255))
         my_font=pygame.font.Font(None, 100)        
+        
         text2 = my_font.render("You Win 'O'",1,(0,0,0))
         screen.blit(text2,(250,100))
         font=pygame.font.Font(None, 50)        
+        
         text = font.render(" page d'acceuil",1,(0,0,0))
         screen.blit(text,(500,300))
         text = font.render(" recommencer",1,(0,0,0))
         screen.blit(text,(100,300))
+        
         if event.type == pygame.MOUSEBUTTONDOWN:
             x,y=pygame.mouse.get_pos()
             if 500<x<745 and 310<y<320:
@@ -84,7 +92,8 @@ def menu(p):
                       
             if event.type==pygame.QUIT:
                 sys.exit()
-            if p==1: 
+            
+            elif p==1: 
                 victoire_croix()          
             elif p==0:
                 victoire_rond()
