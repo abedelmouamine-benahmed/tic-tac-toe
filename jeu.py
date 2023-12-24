@@ -1,33 +1,7 @@
 import pygame  
 import sys 
-  
+import menu 
 
-    
-    
-    
-# def victoire(x,y):
-    # pygame.font.init()
-    
-    # if a==b==c==1 or d==e==f==1 or g==h==j==1 or a==e==j==1 or c==e==g==1 or a==d==g==1 or b==e==h==1 or c==f==j==1:
-    #     screen.fill((255,255,255))
-    #     my_font=pygame.font.Font(None, 100)        
-    #     text = my_font.render("You Win 'X'",1,(0,0,0))
-    #     affichage_partie_fini(text)
-    #     if event.type== pygame.MOUSEBUTTONDOWN:
-    #         x,y=pygame.mouse.get_pos()
-    #         if 500<x<745 and 310<y<320:
-    #             page_accueil.page_acceuil()           
-
-    # elif a==b==c==2 or d==e==f==2 or g==h==j==2 or a==e==j==2 or c==e==g==2 or c==e==g==2 or a==d==g==2 or b==e==h==2 or c==f==j==2:
-    #     screen.fill((255,255,255))
-    #     my_font=pygame.font.Font(None, 100)        
-    #     text = my_font.render("You Win 'O'",1,(0,0,0))
-    #     affichage_partie_fini(text)
-    #     if event.type== pygame.MOUSEBUTTONDOWN:
-    #         x,y=pygame.mouse.get_pos()
-    #         if 110<x<430 and 300<y<330:
-    #             partie_simple()   
-          
 def partie_simple():
    
     
@@ -51,6 +25,8 @@ def partie_simple():
     g=0
     h=0
     j=0
+
+    indice_fin_partie=0
           
     #initialisation du i permettant de faire alterner les tours
     i=0
@@ -80,25 +56,12 @@ def partie_simple():
             x,y=pygame.mouse.get_pos()
             pygame.font.init()
             
-            pygame.display.flip() 
+            # pygame.display.flip() 
             pygame.display.update() 
             
             if event.type==pygame.QUIT:
-                sys.exit()
-
-            elif a==b==c==1 or d==e==f==1 or g==h==j==1 or a==e==j==1 or c==e==g==1 or a==d==g==1 or b==e==h==1 or c==f==j==1:
-                from menu import menu  
-                p=1
-                
-                menu(p)
-
-
-            elif a==b==c==2 or d==e==f==2 or g==h==j==2 or a==e==j==2 or c==e==g==2 or c==e==g==2 or a==d==g==2 or b==e==h==2 or c==f==j==2:
-                from menu import menu  
-                p=0
-                menu(p)
-            
-            
+                sys.exit()           
+           
             elif event.type == pygame.MOUSEBUTTONDOWN :
                 i=i+1                     
                                         
@@ -113,21 +76,25 @@ def partie_simple():
                         pygame.draw.circle(screen,(0,0,0),(150,300),90,5)    
                         collision2=True
                         d=2
-                    
+                        
+
                     elif 0<x<=300 and 400<y<=600 and collision3==False:
                         pygame.draw.circle(screen,(0,0,0),(150,500),90,5)
                         collision3=True
                         g=2
-                    
+                        
+
                     elif 300<x<=600 and 0<y<=200 and collision4==False:
                         pygame.draw.circle(screen,(0,0,0),(450,100),90,5)
                         collision4=True
                         b=2
+                        
                     
                     elif 300<x<=600 and 200<y<=400 and collision5==False:
                         pygame.draw.circle(screen,(0,0,0),(450,300),90,5)
                         collision5=True
                         e=2
+
                     
                     elif 300<x<=600 and 400<y<=600 and collision6==False:
                         pygame.draw.circle(screen,(0,0,0),(450,500),90,5)
@@ -148,7 +115,8 @@ def partie_simple():
                         pygame.draw.circle(screen,(0,0,0),(750,500),90,5)  
                         collision9=True
                         j=2
-                                
+                    indice_fin_partie+=1
+               
                 else :
                     
                     if 0<x<=300 and 0<y<=200 and collision1==False:
@@ -204,7 +172,21 @@ def partie_simple():
                         pygame.draw.line(screen,(0,0,0),(870,420),(680,580),5)
                         collision9=True
                         j=1
+                    indice_fin_partie+=1
             
+            elif a==b==c==1 or d==e==f==1 or g==h==j==1 or a==e==j==1 or c==e==g==1 or a==d==g==1 or b==e==h==1 or c==f==j==1:
+                 
+                p=1
+                menu(p)
+
+            elif a==b==c==2 or d==e==f==2 or g==h==j==2 or a==e==j==2 or c==e==g==2 or a==d==g==2 or b==e==h==2 or c==f==j==2:
+                 
+                p=0
+                menu(p)          
+            
+            elif indice_fin_partie==9:
+                p=3
+                menu(p)
 
                                          
 # partie_simple()                            

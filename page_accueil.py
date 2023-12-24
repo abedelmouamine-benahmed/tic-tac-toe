@@ -1,7 +1,7 @@
-import jeu
+
 import pygame 
 import sys
-
+import jeu
 
 def page_accueil():
     pygame.init()
@@ -27,7 +27,7 @@ def page_accueil():
             screen.blit(text,(300,300))
             text = My_font.render("1vsAI",1,(0,0,0))
             screen.blit(text,(500,300))
-            pygame.display.flip() 
+            # pygame.display.flip() 
             pygame.display.update() 
             
             if event.type==pygame.QUIT:
